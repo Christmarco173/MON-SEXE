@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Formulaire de sexe</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		fieldset {
+			width: 300px;
+			margin: 50px auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		legend {
+			font-weight: bold;
+			color: #333;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="radio"] {
+			margin-right: 10px;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Genre</legend>
+			<label>Sexe :</label>
+			<br>
+			<input type="radio" id="M" name="sexe" value="M" onclick="afficherMessage(this)"> M
+			<input type="radio" id="F" name="sexe" value="F" onclick="afficherMessage(this)"> F
+			<br>
+			<p id="message"></p>
+			<input type="submit" id="envoyer" value="Envoyer" onclick="monsexe()">
+		</fieldset>
+	</form>
+
+	<script>
+		function afficherMessage(sexe) {
+			var message = document.getElementById('message');
+			if (sexe.value === 'M') {
+				message.textContent = 'Je suis de sexe masculin';
+			} else if (sexe.value === 'F') {
+				message.textContent = 'Je suis de sexe féminin';
+			}
+		}
+
+		function monsexe() {
+			var sexeM = document.getElementById('M');
+			var sexeF = document.getElementById('F');
+			var message = document.getElementById('message');
+
+			if (sexeM.checked) {
+				alert('Je suis de sexe masculin');
+			} else if (sexeF.checked) {
+				alert('Je suis de sexe féminin');
+			} else {
+				alert('Veuillez sélectionner votre sexe');
+			}
+		}
+	</script>
+</body>
+</html>
